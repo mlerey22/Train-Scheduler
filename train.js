@@ -34,18 +34,18 @@ console.log(time, name, destination, frequency);
 })
 // clear the inboxes
 $("#name").val("").focus();
-$("#date").val("")
-$("#role").val("")
-$("#rate").val("")
+$("#time").val("")
+$("#destination").val("")
+$("#frequency").val("")
 
 
 })
 
-fdatabase.ref().on("child_added", function(snapshot) {
+database.ref().on("child_added", function(snapshot) {
     console.log(snapshot.val());
     
 
-
+    $("#tableBody").append(`<tr><td>${snapshot.val().name}</td><td>${snapshot.val().destination}</td><td>${snapshot.val().frequency}</td><td>`)
 
     //$("#tableBody").append(`<tr><td>${snapshot.val().name}</td><td>${snapshot.val().destination}</td><td>${snapshot.val().frequency}</td><td>${months}</td><td>${snapshot.val().rate}</td><td>${billed}</td></tr>`);
 })
